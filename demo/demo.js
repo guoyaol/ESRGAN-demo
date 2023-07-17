@@ -14,7 +14,7 @@ document.getElementById('inputImage').addEventListener('change', function (event
 function loadImageData(file) {
     return new Promise((resolve, reject) => {
         const img = new Image();
-        img.onload = function() {
+        img.onload = function () {
             const canvas = document.getElementById('canvas');
             const ctx = canvas.getContext('2d');
             canvas.width = img.width;
@@ -24,26 +24,21 @@ function loadImageData(file) {
             const imageData = ctx.getImageData(0, 0, img.width, img.height);
             resolve(imageData);
         };
-        img.onerror = function() {
+        img.onerror = function () {
             reject(new Error("Failed to load image"));
         };
         img.src = URL.createObjectURL(file);
     });
 }
 
-//Step2: Load image into the instance
 function useLoadedImageData() {
     console.log(loadedImageData);
-    localRealESRGANInst.loadImage(loadedImageData); 
+    //Step2: Load image into the instance
+    localRealESRGANInst.loadImage(loadedImageData);
 }
 
 
-//Step3: Generate super resolution image
 tvmjsGlobalEnv.asyncOnGenerate = async function () {
-await localRealESRGANInst.generate();
+    //Step3: Generate super resolution image
+    await localRealESRGANInst.generate();
 };
-
-// tvmjsGlobalEnv.asyncOnRPCServerLoad = async function (tvm) {
-// const inst = new RealESRGANInstance();
-// await inst.asyncInitOnRPCServerLoad(tvm);
-// };

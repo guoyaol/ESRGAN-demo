@@ -4,6 +4,8 @@
 ### Step1:
 ```cd ./demo```
 ### Step2:
+```npm install```
+### Step3:
 ```npm start```
 ## Interface for developers:
 ### Step1: specify dependecy in package.json

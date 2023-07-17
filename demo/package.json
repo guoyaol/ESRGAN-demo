@@ -3,8 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "python -m http.server 8000",
-        "p": "parcel real_esrgan.html  --port 8888"
+        "start": "python -m http.server 8000"
     },
     "dependencies": {
         "real-esrgan": "../package"
